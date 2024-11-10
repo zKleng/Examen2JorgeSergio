@@ -4,30 +4,26 @@ on:
   push:
     branches: ["**"]
   pull_request:
-    branches: ["**"]
+    branches: [ "**" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 11
+      - name: set up JDK 11
         uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          cache: gradle
+
       - name: Grant execute permission for gradlew
-        run: chmod +x ./Examen2/gradlew  # Ensure the correct relative path here
+        run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./Examen2/gradlew build  # Correct relative path to the gradlew script
+        run: ./gradlew build
 
   test:
     runs-on: ubuntu-latest
@@ -35,16 +31,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 11
+      - name: set up JDK 11
         uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'temurin'
+          cache: gradle
+
       - name: Grant execute permission for gradlew
-        run: chmod +x ./Examen2/gradlew  # Correct relative path
+        run: chmod +x gradlew
+
       - name: Run unit tests with Gradle
-        run: ./Examen2/gradlew test  # Correct relative path
+        run: ./gradlew test
+
+      - name: Unit Test
+        run: ./gradlew testDebugUnitTest
 
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }}  # IMPORTANT: run Android Test Report regardless
+        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
