@@ -20,9 +20,9 @@ jobs:
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x ./Examen2/gradlew  # Update path to gradlew in subdirectory
+        run: ./gradlew build
       - name: Build with Gradle
-        run: ./gradlew build   # Update path to gradlew in subdirectory
+        run: ./gradlew build   
 
   test:
     runs-on: ubuntu-latest
