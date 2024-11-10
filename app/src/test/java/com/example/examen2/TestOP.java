@@ -25,7 +25,7 @@ public class TestOP {
 
         int resultado = Calculadora.realizarOperacion(num1, num2, operador);
 
-        assertEquals(15, resultado, "La división de 10 entre 2 debería ser 5");
+        assertEquals(5, resultado, "La división de 10 entre 2 debería ser 5");
     }
 
     @Test
