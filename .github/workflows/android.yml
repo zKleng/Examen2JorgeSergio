@@ -22,7 +22,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./Examen2/gradlew  # Update path to gradlew in subdirectory
       - name: Build with Gradle
-        run: ./Examen2/gradlew build   # Update path to gradlew in subdirectory
+        run: ./gradlew build   # Update path to gradlew in subdirectory
 
   test:
     runs-on: ubuntu-latest
