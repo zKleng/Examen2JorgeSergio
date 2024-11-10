@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestJorgeOP {
+public class TestOP {
 
     @Test
     public void testRealizarOperacionSuma() {

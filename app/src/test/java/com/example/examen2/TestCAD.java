@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCADJorge {
+public class TestCAD {
 
     @Test
     public void testConvertirADestinoBinario() {
